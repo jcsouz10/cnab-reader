@@ -1,0 +1,28 @@
+version: "3"
+services:
+    cnab-db:
+        image: postgres:11
+        restart: always
+        volumes:
+            - ./pgdata:/var/lib/postgresql/data
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./createTable.sql:/docker-entrypoint-initdb.d/createTable.sql
+        environment:
+            POSTGRES_USER: "${CNAB_DB_USER}"
+            POSTGRES_DB: "${CNAB_DB_DATABASE}"
+            POSTGRES_PASSWORD: "${CNAB_DB_PASSWORD}"
+        ports:
+            - "${CNAB_DB_PORT}:5432"
+        networks:
+            - cnab-dev-network
+    cnab-dev:
+        build:
+            context: ./
+        ports:
+            - "7000:7000"
+        networks:
+            - cnab-dev-network
+
+networks:
+    cnab-dev-network:
+        driver: bridge

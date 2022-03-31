@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+      "noImplicitAny": false,
+      "pretty": true,
+      "module": "commonjs",
+      "target": "es6",
+      "jsx": "preserve",
+      "experimentalDecorators": true,
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "allowJs": true,
+      "skipLibCheck": false,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "noEmit": true,
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "isolatedModules": true,
+
+    },
+    "include": ["src/components", "src/custom.d.ts"],
+
+  }
+  
